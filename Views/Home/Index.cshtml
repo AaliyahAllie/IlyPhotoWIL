@@ -1,0 +1,13 @@
+@{ ViewData["Title"] = "Home"; }
+<section class="hero">
+    <div class="hero-copy">
+        <p class="eyebrow">CAPE TOWN PHOTOGRAPHER</p>
+        <h1>Moments worth keeping <em>forever.</em></h1>
+        <p>Authentic photography for matric balls, weddings, corporate events, birthdays and everything in between.</p>
+        <div class="actions"><a class="btn" asp-controller="Home" asp-action="Packages">View packages</a><a class="btn outline" asp-controller="Home" asp-action="Portfolio">See portfolio</a></div>
+    </div>
+    <div class="hero-card"><img src="~/images/ily-logo.png" alt="ILY Photo logo"/><span>capture forever</span></div>
+</section>
+<section class="section center"><p class="eyebrow">WHAT I PHOTOGRAPH</p><h2>Stories, celebrations & milestones</h2><div class="cards four"><article><h3>Matric Balls</h3><p>Celebrate the night with portraits, arrivals and unforgettable moments.</p></article><article><h3>Weddings</h3><p>From getting ready to the final dance, preserve the full story.</p></article><article><h3>Corporate</h3><p>Professional coverage for launches, functions, conferences and team events.</p></article><article><h3>Birthdays & Other</h3><p>Flexible hourly coverage for personal celebrations and special events.</p></article></div></section>
+<section class="split section"><div><p class="eyebrow">WHY ILY PHOTO</p><h2>Personal service, beautiful memories.</h2><p>ILY Photo is a one-person photography business. That means every enquiry, booking, shoot and gallery is handled personally by the photographer.</p><a class="text-link" asp-controller="Home" asp-action="About">Meet the photographer →</a></div><div class="quote">“Photography is the art of holding onto a moment you never want to lose.”</div></section>
+<section class="cta"><h2>Ready to book your date?</h2><p>Create an account to check availability and request your shoot.</p><a class="btn light" asp-controller="Account" asp-action="Register">Create client account</a></section>

@@ -1,0 +1,4 @@
+@{ ViewData["Title"] = "Reviews"; }
+<section class="dashboard-head"><div><p class="eyebrow">REVIEWS</p><h1>Share your experience</h1></div></section>
+@if(TempData["ReviewMessage"]!=null){<div class="notice">@TempData["ReviewMessage"]</div>}
+<section class="section compact"><div class="panel narrow"><form method="post"><label>Rating<select name="rating"><option value="5">★★★★★ — 5</option><option value="4">★★★★☆ — 4</option><option value="3">★★★☆☆ — 3</option><option value="2">★★☆☆☆ — 2</option><option value="1">★☆☆☆☆ — 1</option></select></label><label>Your review<textarea name="review" rows="6" required></textarea></label><button class="btn" type="submit">Submit review</button></form></div></section>

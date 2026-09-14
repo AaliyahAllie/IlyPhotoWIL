@@ -1,0 +1,60 @@
+@{
+    var role = Context.Session.GetString("Role");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - ILY Photo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" asp-controller="Home" asp-action="Index"><img src="~/images/ily-logo.png" alt="ILY Photo" /></a>
+    <button class="menu-btn" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+    <nav class="nav">
+        @if (role == "Client")
+        {
+            <a asp-controller="Client" asp-action="Index">Dashboard</a>
+            <a asp-controller="Client" asp-action="Bookings">Bookings</a>
+            <a asp-controller="Client" asp-action="Invoices">Invoices</a>
+            <a asp-controller="Client" asp-action="Gallery">Gallery</a>
+            <a asp-controller="Client" asp-action="Reviews">Reviews</a>
+            <a asp-controller="Client" asp-action="Profile">Profile</a>
+            <a class="btn small" asp-controller="Account" asp-action="Logout">Logout</a>
+        }
+        else if (role == "Admin")
+        {
+            <a asp-controller="Admin" asp-action="Index">Dashboard</a>
+            <a asp-controller="Admin" asp-action="Bookings">Bookings</a>
+            <a asp-controller="Admin" asp-action="Invoices">Invoices</a>
+            <a asp-controller="Admin" asp-action="Galleries">Galleries</a>
+            <a asp-controller="Admin" asp-action="Clients">Clients</a>
+            <a asp-controller="Admin" asp-action="Services">Services</a>
+            <a class="btn small" asp-controller="Account" asp-action="Logout">Logout</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Home" asp-action="About">About</a>
+            <a asp-controller="Home" asp-action="Packages">Packages</a>
+            <a asp-controller="Home" asp-action="Portfolio">Portfolio</a>
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a class="btn small" asp-controller="Account" asp-action="Register">Register</a>
+        }
+    </nav>
+</header>
+<main>@RenderBody()</main>
+<footer>
+    <div><img src="~/images/ily-logo.png" alt="ILY Photo logo" /></div>
+    <div><strong>ILY Photo</strong><br/>Cape Town, South Africa<br/>Capture forever.</div>
+    <div>Instagram · Email · WhatsApp</div>
+</footer>
+<script src="~/js/site.js"></script>
+@await RenderSectionAsync("Scripts", required:false)
+</body>
+</html>
